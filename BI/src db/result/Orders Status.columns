@@ -1,0 +1,3 @@
+"name","type","length","leftDigits","rightDigits"
+"Status ID","INTEGER","1","1","0"
+"Status Name","STRING","8","0","0"
