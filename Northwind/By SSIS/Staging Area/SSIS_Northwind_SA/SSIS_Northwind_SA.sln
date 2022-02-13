@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS_Northwind_SA", "SSIS_Northwind_SA.dtproj", "{BB7FEC71-2FFD-4FE4-9E13-20F6353EC38E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB7FEC71-2FFD-4FE4-9E13-20F6353EC38E}.Development|Default.ActiveCfg = Development
+		{BB7FEC71-2FFD-4FE4-9E13-20F6353EC38E}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8AC5F50-FE20-427F-B095-8338D314335A}
+	EndGlobalSection
+EndGlobal

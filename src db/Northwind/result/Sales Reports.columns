@@ -1,0 +1,6 @@
+"name","type","length","leftDigits","rightDigits"
+"Group By","STRING","14","0","0"
+"Display","STRING","14","0","0"
+"Title","STRING","17","0","0"
+"Filter Row Source","STRING","85","0","0"
+"Default","STRING","5","0","0"
