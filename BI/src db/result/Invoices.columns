@@ -1,8 +1,0 @@
-"name","type","length","leftDigits","rightDigits"
-"Invoice ID","INTEGER","2","2","0"
-"Order ID","INTEGER","2","2","0"
-"Invoice Date","STRING","19","0","0"
-"Due Date","STRING","0","0","0"
-"Tax","DECIMAL","6","1","4"
-"Shipping","DECIMAL","6","1","4"
-"Amount Due","DECIMAL","6","1","4"
