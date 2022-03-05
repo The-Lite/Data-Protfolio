@@ -1,25 +1,25 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="1/25/2022 2:54:51 AM"
+  DTS:CreationDate="1/27/2022 9:49:54 AM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LITE"
   DTS:CreatorName="LITE\LGD Lite"
-  DTS:DTSID="{52C7BE47-0650-43D0-BFD6-D8CDFA0163C5}"
+  DTS:DTSID="{F8F23EC5-D3FE-4F6D-86DF-220C697BBEE3}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.165"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{532B3E00-8B19-43E5-BAC1-287D2D0B9452}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{D440C73C-61E2-4E22-9A22-87BA4921FD77}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Lite.SSIS_DW]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{30CFC534-BB47-4DFF-AC70-C6D7720F854C}"
+      DTS:DTSID="{63BF27F4-0F56-4567-B262-4FF050FF8350}"
       DTS:ObjectName="Lite.SSIS_DW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Lite.SSIS_StagingArea]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{1E81AE0F-D0FB-410F-ACDC-238A87ACB1B4}"
+      DTS:DTSID="{CED7D710-A19A-4F5E-9C99-4B0834F1D939}"
       DTS:ObjectName="Lite.SSIS_StagingArea">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -47,7 +47,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{F5B75832-037A-47E1-86AA-104D859F04D2}"
+      DTS:DTSID="{070BBE6D-3CD0-48BA-84FD-025C188BC869}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -78,7 +78,7 @@
                     <inputColumn
                       refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[Derived Column 2]"
                       cachedDataType="wstr"
-                      cachedLength="100"
+                      cachedLength="50"
                       cachedName="Derived Column 2"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]" />
                     <inputColumn
@@ -126,7 +126,7 @@
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="100"
+                      length="50"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived Column 2]"
                       name="Copy of Derived Column 2"
                       truncationRowDisposition="FailComponent">
@@ -205,26 +205,26 @@
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[ Employee_ID]"
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[ProductID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName=" Employee_ID"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ Employee_ID]" />
+                      cachedName="ProductID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[Employee_Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Employee_Name"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee_Name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[Country Region]"
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[ProductName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedName="Country Region"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country Region]" />
+                      cachedName="ProductName"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[CategoryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CategoryName"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryName]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -251,13 +251,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACE](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ Employee_ID]},"\"","")</property>
+                          name="Expression">[REPLACE](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]},"\"","")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE([ Employee_ID],"\"","")</property>
+                          name="FriendlyExpression">REPLACE(ProductID,"\"","")</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -265,7 +265,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="100"
+                      length="50"
                       lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
                       name="Derived Column 2"
                       truncationRowDisposition="FailComponent">
@@ -274,13 +274,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACE](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee_Name]},"\"","")</property>
+                          name="Expression">[REPLACE](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]},"\"","")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE(Employee_Name,"\"","")</property>
+                          name="FriendlyExpression">REPLACE(ProductName,"\"","")</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -297,13 +297,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[REPLACE](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country Region]},"\"","")</property>
+                          name="Expression">[REPLACE](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryName]},"\"","")</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">REPLACE([Country Region],"\"","")</property>
+                          name="FriendlyExpression">REPLACE(CategoryName,"\"","")</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -349,21 +349,21 @@
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-      [ Employee_ID]
-      ,[Employee_Name]
-      ,[Country Region]
-  FROM [SSIS_DW].[dbo].[Dim Employee]</property>
+      [ProductID]
+      ,[ ProductName]
+      ,[ CategoryName]
+  FROM [SSIS_DW].[dbo].[Dim Product]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
-      [ Employee_ID]
-      ,[Employee_Name]
-      ,[Country Region]
-  FROM [SSIS_DW].[dbo].[Dim Employee]) [refTable]
-where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refTable].[Country Region] = ?</property>
+      [ProductID]
+      ,[ ProductName]
+      ,[ CategoryName]
+  FROM [SSIS_DW].[dbo].[Dim Product]) [refTable]
+where [refTable].[ProductID] = ? and [refTable].[ ProductName] = ? and [refTable].[ CategoryName] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -394,7 +394,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name=" Employee_ID" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Employee_Name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Country Region" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductID" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name=" ProductName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name=" CategoryName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -433,7 +433,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn"> Employee_ID</property>
+                          name="JoinToReferenceColumn">ProductID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -444,14 +444,14 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                       refId="Package\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[Copy of Derived Column 2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="100"
+                      cachedLength="50"
                       cachedName="Copy of Derived Column 2"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived Column 2]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Employee_Name</property>
+                          name="JoinToReferenceColumn"> ProductName</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -469,7 +469,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Country Region</property>
+                          name="JoinToReferenceColumn"> CategoryName</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -489,51 +489,51 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                   synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Employee_ID]"
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[ProductID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="50"
-                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Employee_ID]"
-                      name="Employee_ID"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[ProductID]"
+                      name="ProductID"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn"> Employee_ID</property>
+                          name="CopyFromReferenceColumn">ProductID</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Employee_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Copy Column"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Employee_Name]"
-                      name="Employee_Name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Employee_Name</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Country Region]"
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[ProductName]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Copy Column"
                       length="50"
-                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[Country Region]"
-                      name="Country Region"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[ProductName]"
+                      name="ProductName"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">Country Region</property>
+                          name="CopyFromReferenceColumn"> ProductName</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[CategoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[CategoryName]"
+                      name="CategoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn"> CategoryName</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -587,7 +587,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Dim Employee]</property>
+                  name="OpenRowset"></property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -597,10 +597,10 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
-      [ Employee_ID]
-      ,[Employee_Name]
-      ,[Country Region]
-  FROM [SSIS_DW].[dbo].[Dim Employee]</property>
+      [ProductID]
+      ,[ ProductName]
+      ,[ CategoryName]
+  FROM [SSIS_DW].[dbo].[Dim Product]</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -617,7 +617,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
+                  name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
@@ -625,7 +625,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -648,50 +648,50 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Derived Column 3]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Copy of Derived Column 3"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country Region]"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived Column 3]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Derived Column 1]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Copy of Derived Column 1"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ Employee_ID]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived Column 1]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Derived Column 2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="100"
+                      cachedLength="50"
                       cachedName="Copy of Derived Column 2"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee_Name]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ ProductName]"
                       lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived Column 2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Derived Column 3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of Derived Column 3"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ CategoryName]"
+                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived Column 3]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ Employee_ID]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name=" Employee_ID" />
+                      name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="Employee_Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country Region]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ ProductName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="Country Region" />
+                      name=" ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ CategoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" CategoryName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -736,7 +736,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Employee]</property>
+                  name="OpenRowset">[dbo].[Product]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -782,59 +782,59 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ Employee_ID]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ Employee_ID]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ Employee_ID]"
-                      name=" Employee_ID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee_Name]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Employee_Name]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Employee_Name]"
-                      name="Employee_Name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      name="ProductName"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country Region]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryName]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Country Region]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country Region]"
-                      name="Country Region"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CategoryName]"
+                      name="CategoryName"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ Employee_ID]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name=" Employee_ID" />
+                      name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Employee_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="Employee_Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Country Region]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      name="Country Region" />
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CategoryName" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -843,26 +843,26 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ Employee_ID]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ Employee_ID]"
-                      name=" Employee_ID" />
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Employee_Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Employee_Name]"
-                      name="Employee_Name" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Country Region]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Country Region]"
-                      name="Country Region" />
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                      name="CategoryName" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -922,7 +922,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
         <NodeLayout
           Size="151,42"
           Id="Package\Data Flow Task"
-          TopLeft="373,144" />
+          TopLeft="372,90" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -932,43 +932,47 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="174,72" />
+        <NodeLayout
           Size="171,42"
           Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="134,334" />
+          TopLeft="213,396" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Data Flow Task\Lookup"
+          TopLeft="501,260" />
         <NodeLayout
           Size="154,42"
           Id="Package\Data Flow Task\Derived Column"
-          TopLeft="498,153" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="275,34" />
+          TopLeft="183,146" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="350,76">
+          TopLeft="249,114">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="225,77"
+              EndConnector="11,32"
               Start="0,0"
-              End="225,69.5">
+              End="11,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,12" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="4,38.5" />
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
                   <mssgle:LineSegment
-                    End="221,38.5" />
+                    End="7,16" />
                   <mssgle:CubicBezierSegment
-                    Point1="221,38.5"
-                    Point2="225,38.5"
-                    Point3="225,42.5" />
+                    Point1="7,16"
+                    Point2="11,16"
+                    Point3="11,20" />
                   <mssgle:LineSegment
-                    End="225,69.5" />
+                    End="11,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -980,33 +984,21 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
         <NodeLayout
           Size="156,42"
           Id="Package\Data Flow Task\Data Conversion"
-          TopLeft="412,229" />
+          TopLeft="468,152" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="575,195">
+          TopLeft="337,170">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-85,34"
+              EndConnector="131,0"
               Start="0,0"
-              End="-85,26.5">
+              End="123.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13"
-                    Point2="0,17"
-                    Point3="-4,17" />
-                  <mssgle:LineSegment
-                    End="-81,17" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-81,17"
-                    Point2="-85,17"
-                    Point3="-85,21" />
-                  <mssgle:LineSegment
-                    End="-85,26.5" />
+                    End="123.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1015,24 +1007,32 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Data Flow Task\Lookup"
-          TopLeft="274,229" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="412,250">
+          TopLeft="546,194">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-25,0"
+              EndConnector="11.5,66"
               Start="0,0"
-              End="-17.5,0">
+              End="11.5,58.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-17.5,0" />
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="7.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,33"
+                    Point2="11.5,33"
+                    Point3="11.5,37" />
+                  <mssgle:LineSegment
+                    End="11.5,58.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1043,37 +1043,37 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="330.5,271">
+          TopLeft="557.5,302">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-111,63"
+              EndConnector="-259,94"
               Start="0,0"
-              End="-111,55.5">
+              End="-259,86.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,43" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.5"
-                    Point2="0,31.5"
-                    Point3="-4,31.5" />
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="-4,47" />
                   <mssgle:LineSegment
-                    End="-107,31.5" />
+                    End="-255,47" />
                   <mssgle:CubicBezierSegment
-                    Point1="-107,31.5"
-                    Point2="-111,31.5"
-                    Point3="-111,35.5" />
+                    Point1="-255,47"
+                    Point2="-259,47"
+                    Point3="-259,51" />
                   <mssgle:LineSegment
-                    End="-111,55.5" />
+                    End="-259,86.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-111.30638671875,36.5,111.6127734375,11.609375"
+              BoundingBox="-185.30638671875,52,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1081,7 +1081,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1094,15 +1094,10 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1122,7 +1117,7 @@ where [refTable].[ Employee_ID] = ? and [refTable].[Employee_Name] = ? and [refT
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
